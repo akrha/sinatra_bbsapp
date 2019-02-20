@@ -29,6 +29,7 @@ end
 
 get '/topic/:id' do
 	@topic = Topic.find(params[:id])
+    @title = @topic["title"]
 	@comments = Comment.where(topic_id: params[:id])
 	erb :topic
 end
