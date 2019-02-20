@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title><%== @title %></title>
+    </head>
+    <body>
+        <ul>
+            <% @topics.each do |topic| %>
+            <li>
+                <a href="./topic/<%== topic.id %>"><%== topic.title %></a>
+            </li>
+            <% end %>
+        </ul>
+
+        <form action="/topic_create" method="post">
+            <input type="text" name="title">
+            <textarea type="text" name="body"></textarea>
+            <input type="submit" value="投稿">
+        </form>
+    </body>
+</html>

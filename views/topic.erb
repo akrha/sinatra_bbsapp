@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>トピック</title>
+    </head>
+    <body>
+        <div class="topic">
+            <div class="title">
+                <%== @topic.title %>
+            </div>
+            <div class="body">
+                <%== @topic.body %>
+            </div>
+        </div>
+        <ul>
+            <% @comments.each do |comment| %>
+            <li>
+                <%== comment.body %>
+            </li>
+            <% end %>
+        </ul>
+
+        <form method="post" action="/comment_create">
+            <input type="hidden" name="topic_id" value="<%== @topic.id %>">
+            <textarea type="text" name="body"></textarea>
+            <input type="submit" value="投稿">
+        </form>
+    </body>
+</html>
